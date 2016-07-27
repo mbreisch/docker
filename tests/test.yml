@@ -13,7 +13,7 @@
 - name: Run docker and docker-compose tests
   hosts: docker_containers
   roles:
-    - role: mbreisch.docker
+    - role: docker
   tasks:
     - name: Test Docker Engine installation
       command: 'docker -v'
