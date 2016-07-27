@@ -1,5 +1,21 @@
 ---
-- hosts: localhost
-  remote_user: root
+- name: Bring up docker containers
+  hosts: localhost
+  gather_facts: false
+  vars:
+    inventory:
+      - name: docker_host_1
+        image: "ubuntu-upstart:14.04"
   roles:
-    - mbreisch.docker
+    - role: provision_docker
+      provision_docker_inventory: "{{ inventory }}"
+
+- name: Run docker and docker-compose tests
+  hosts: docker_containers
+  roles:
+    - role: mbreisch.docker
+  tasks:
+    - name: Test Docker Engine installation
+      command: 'docker -v'
+    - name: Test Docker Compose installation
+      command: 'docker-compose --version'
