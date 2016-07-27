@@ -1,0 +1,11 @@
+---
+# tasks file for mbreisch.docker
+- name: install dependencies
+  apt: name=curl state=latest
+  
+- name: install docker-engine
+  shell: curl -sSL https://get.docker.com/ | sh
+
+- name: install docker-compose
+  shell: curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+
