@@ -2,6 +2,7 @@
 # tasks file for mbreisch.docker
 - name: install dependencies
   apt: name=curl state=latest
+  become: true
   
 - name: install docker-engine
   shell: curl -sSL https://get.docker.com/ | sh
