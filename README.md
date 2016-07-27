@@ -1,6 +1,8 @@
 Docker Role
 =========
 
+[![Build Status](https://travis-ci.org/mbreisch/docker.svg?branch=master)](https://travis-ci.org/mbreisch/docker)
+
 Installs docker-engine and docker-compose
 
 Requirements
