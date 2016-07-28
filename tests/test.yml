@@ -13,7 +13,7 @@
 - name: Run docker and docker-compose tests
   hosts: docker_containers
   roles:
-    - role: docker
+    - role: docker-role
   tasks:
     - name: Test Docker Engine installation
       command: 'docker -v'
