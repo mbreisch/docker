@@ -12,6 +12,8 @@
 
 - name: Run docker and docker-compose tests
   hosts: docker_containers
+  vars:
+    - docker_ufw: yes
   roles:
     - role: docker-role
   tasks:
