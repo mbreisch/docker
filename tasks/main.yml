@@ -1,7 +1,14 @@
 ---
 # tasks file for mbreisch.docker
 - name: Install dependencies
-  apt: name=curl state=latest
+  apt:
+      name={{ item }}
+      update_cache=yes
+      state=latest
+  with_items:
+      - curl
+      - python-dev
+      - python-setuptools
 
 - name: Install docker-engine
   shell: curl -sSL https://get.docker.com/ | sh
@@ -16,3 +23,32 @@
               state=present
   notify: reload ufw
   when: docker_ufw
+
+# Ansible Docker Module Support (docker_image, docker_container, docker_service)
+- name: Install docker module support dependencies
+  apt:
+      name={{ item }}
+      update_cache=yes
+  with_items:
+      - python-dev
+      - python-setuptools
+  when: docker_ansible_module_support
+
+- name: Install pip
+  easy_install:
+      name=pip
+  when: docker_ansible_module_support
+
+- name: Install docker-py
+  pip:
+      name=docker-py
+      state=present
+      version=1.7.0
+  when: docker_ansible_module_support
+
+- name: Install PyYAML
+  pip:
+      name=PyYAML
+      state=present
+      version=3.11
+  when: docker_ansible_module_support

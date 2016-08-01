@@ -1,3 +1,4 @@
 ---
 # defaults file for mbreisch.docker
 docker_ufw: yes
+docker_ansible_module_support: yes

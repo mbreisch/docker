@@ -16,6 +16,7 @@ UFW is expected but not required.
 
 Defaults:
 * docker_ufw: yes
+* docker_ansible_module_support: yes
 
 Dependencies
 ------------
