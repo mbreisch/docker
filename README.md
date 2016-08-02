@@ -12,16 +12,15 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
-UFW is expected but not required.
 
 Defaults:
-* docker_ufw: yes
 * docker_ansible_module_support: yes
 
 Dependencies
 ------------
 
-Uses mbreisch.ufw-role for docker ufw configuration. TCP port 2375 is opened for docker's use.
+There are no dependencies, but if you are using ufw you will need to configure some rules. TCP port 2375 should be opened for docker's use.
+UFW's DEFAULT_FORWARD_POLICY should be set to "ACCEPT". You can Use mbreisch.ufw-role for docker's ufw configuration. 
 
 Example Playbook
 ----------------

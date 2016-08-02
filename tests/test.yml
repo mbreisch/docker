@@ -13,7 +13,7 @@
 - name: Run docker and docker-compose tests
   hosts: docker_containers
   vars:
-    - docker_ufw: yes
+    - docker_ansible_module_support: yes
   roles:
     - role: docker-role
   tasks:

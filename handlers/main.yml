@@ -1,4 +1,3 @@
 ---
 # handlers file for mbreisch.docker
-- name: reload ufw
-  service: name=ufw state=reloaded
+

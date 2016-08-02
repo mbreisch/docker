@@ -1,4 +1,2 @@
 - src: chrismeyersfsu.provision_docker
   name: provision_docker
-- src: mbreisch.ufw-role
-  version: v1.0
