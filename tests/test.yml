@@ -14,6 +14,7 @@
   hosts: docker_containers
   vars:
     - docker_ansible_module_support: yes
+    - docker_authorized_user: john
   roles:
     - role: docker-role
   tasks:

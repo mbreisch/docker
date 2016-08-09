@@ -12,6 +12,8 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
+Variables:
+* docker_authorized_user
 
 Defaults:
 * docker_ansible_module_support: yes

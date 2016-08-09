@@ -16,6 +16,9 @@
 - name: Install docker-compose
   shell: curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 
+- name: Add authorized user to docker usage group
+  user: name="{{ docker_authorized_user }}" groups=docker append=yes
+  when: docker_authorized_user|default("") != ""
 # Ansible Docker Module Support (docker_image, docker_container, docker_service)
 - name: Install docker module support dependencies
   apt:
